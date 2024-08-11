@@ -12,7 +12,6 @@ function App() {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
     console.log(ctx)
-    
     const stars = []
     
     function draw(star){
@@ -27,7 +26,7 @@ function App() {
         ctx.lineCap = `round`
         ctx.shadowBlur = 100 / (step + 1)
         ctx.shadowOffsetX = 0
-        ctx.shadowColor = `#158157`
+        ctx.shadowColor = `#1581F7`
         ctx.stroke()
       }    
     }
