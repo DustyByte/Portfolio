@@ -16,7 +16,7 @@ function App() {
     
     function draw(star){
       const stepLen = star.len / 20
-      const growthFactor = star.len < 110 ? 0.2 : 0.4
+      const growthFactor = 0.1
       for(let step = 0; step < 20; step++){
         ctx.beginPath()
         ctx.moveTo(star.x + (step * stepLen), star.y + (step * stepLen))
