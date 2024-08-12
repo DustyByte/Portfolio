@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&display=swap');
+
+canvas{
+    position: absolute;
+    top: 0px;
+    left: 0px;  
+}
+
+.homeContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+}
+
+.top{
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top > h2{
+    margin: 0px;
+    color: white;
+    font-family: "Charmonman", cursive;
+}
+
+.top > .hamBurger > hr{
+    width: 24px;
+}
+
+.homeBody{
+    padding-left: 30px;
+    padding-right: 30px;
+    flex-grow: 1;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.homeBody > img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
