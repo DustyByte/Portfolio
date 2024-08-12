@@ -30,9 +30,16 @@ export default function Home(){
             ctx.stroke()
           }    
         }
-        
+        let radius = 100 
         function animate(){
+           
           ctx.clearRect(0, 0, canvas.width, canvas.height)
+          ctx.beginPath()
+          ctx.arc(208, 378, radius, 0, Math.PI*2*0.33)
+          ctx.lineWidth = 8
+          ctx.strokeStyle = `#50AFFF`
+          ctx.stroke()
+          radius++
     
           for(let star = 0; star < stars.length; star++){
             if(stars[star].x > canvas.width || stars[star].x > canvas.height){
@@ -49,6 +56,9 @@ export default function Home(){
     
           requestAnimationFrame(animate)
         }
+
+        
+        console.log(ctx)
     
         for(let i = 0; i < 4; i++){
           stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 80 + Math.random() * 60, speed: (Math.random() * 2) + 2})
@@ -68,7 +78,7 @@ export default function Home(){
                 </div>
             </div>
             <div className="homeBody" >
-                <img src="/favicon.ico" />
+                <img src="/favicon.ico" alt=""/>
             </div>
         </div>
     )
