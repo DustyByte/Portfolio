@@ -7,6 +7,10 @@ import "./home.css"
 export default function Home(){
     const [height, setHeight] = useState(null)
     const [width, setWidth] = useState(null)
+    const topPush = {
+      paddingTop: window.innerHeight/2 - (76+61+70) - 170/2
+    }
+    
 
     useEffect(() => {
         const canvas = document.getElementById(`canvas`)
@@ -103,7 +107,7 @@ export default function Home(){
                     <hr className="right"/>
                 </div>
             </div>
-            <div className="homeBody" >
+            <div className="homeBody" style={topPush} >
                 <div className="introduction">
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>

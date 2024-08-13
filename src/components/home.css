@@ -36,7 +36,6 @@ canvas{
 .homeBody{
     margin-left: 30px;
     margin-right: 30px;
-    padding-top: 76px;
     flex-grow: 1;
     display: flex;
     align-items: center;
