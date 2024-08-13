@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import "./home.css"
 /*git add .
         git commit -m "added canvas for test"
@@ -6,9 +6,6 @@ import "./home.css"
         
 export default function Home(){
     const hero = useRef(null)
-    const topPush = {
-      paddingTop: window.innerHeight / 6
-    }
     
 
     useEffect(() => {
@@ -95,7 +92,7 @@ export default function Home(){
         for(let i = 0; i < 4; i++){
           stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 80 + Math.random() * 60, speed: (Math.random() * 2) + 2})
         }
-        console.log(hero)
+
         animate()
       }, [])
 
@@ -109,7 +106,7 @@ export default function Home(){
                     <hr className="right"/>
                 </div>
             </div>
-            <div className="homeBody" style={topPush} >
+            <div className="homeBody" style={{paddingTop: window.innerHeight / 6}} >
                 <div className="introduction">
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>
