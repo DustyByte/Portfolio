@@ -3,6 +3,10 @@ import "./home.css"
 /*git add .
         git commit -m "added canvas for test"
         git push*/
+
+function isRed(){
+  return (Math.random() < 0.2 ? `red` : `#50AFFF`)
+}        
         
 export default function Home(){
     const hero = useRef(null)
@@ -24,7 +28,7 @@ export default function Home(){
             ctx.beginPath()
             ctx.moveTo(star.x + (step * stepLen), star.y + (step * stepLen))
             ctx.lineTo(star.x + ((step + 1) * stepLen), star.y + ((step + 1) * stepLen))
-            ctx.strokeStyle = `#50AFFF`
+            ctx.strokeStyle = star.col
             ctx.lineWidth = (step + 1) * growthFactor
             ctx.lineCap = `round`
             ctx.shadowBlur = 100 / (step + 1)
@@ -37,41 +41,14 @@ export default function Home(){
         
         let iterated = 0
         const dampen = 0.8
-        const rotSpeed = 0.04 * dampen
+        const rotSpeedInner = 0.06 * dampen
+        const rotSpeedMid = 0.04 * dampen
+        const rotSpeedOuter = 0.02 * dampen
         const radDistance = Math.PI / 2
         
         function animate(){          
           ctx.clearRect(0, 0, canvas.width, canvas.height)  
           
-          if(hero){
-            ctx.beginPath()
-            ctx.lineWidth = 2
-            ctx.lineCap = `round`
-            ctx.strokeStyle = `#004374`
-            ctx.shadowBlur = 0
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 90, Math.PI + rotSpeed * iterated, Math.PI + rotSpeed * iterated + radDistance)
-            ctx.stroke() 
-            ctx.beginPath() 
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 90, rotSpeed * iterated, rotSpeed * iterated + radDistance)
-            ctx.stroke()  
-            ctx.beginPath()
-            ctx.lineWidth = 4
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 96, 4 * Math.PI / 3 - rotSpeed * iterated, 2 * Math.PI - rotSpeed * iterated)
-            ctx.stroke()
-            ctx.beginPath()
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 96, Math.PI / 3 - rotSpeed * iterated, Math.PI - rotSpeed * iterated)
-            ctx.stroke()
-            ctx.beginPath()
-            ctx.lineWidth = 6
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 105, 0 + rotSpeed * iterated, Math.PI + rotSpeed * iterated)
-            ctx.stroke()
-            ctx.beginPath()
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 105, 4 * Math.PI / 3 + rotSpeed * iterated, 5 * Math.PI / 3 + rotSpeed * iterated)
-            ctx.stroke()
-            iterated++
-          }
-            
-    
           for(let star = 0; star < stars.length; star++){
             if(stars[star].x > canvas.width || stars[star].y > canvas.height){
               stars[star].x = (Math.random() - 1) * canvas.width
@@ -84,13 +61,41 @@ export default function Home(){
               draw(stars[star])
             }
           }
+
+          if(hero){
+            ctx.beginPath()
+            ctx.lineWidth = 2
+            ctx.lineCap = `round`
+            ctx.strokeStyle = `#004374`
+            ctx.shadowBlur = 0
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 90, Math.PI + rotSpeedInner * iterated, Math.PI + rotSpeedInner * iterated + radDistance)
+            ctx.stroke() 
+            ctx.beginPath() 
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 90, rotSpeedInner * iterated, rotSpeedInner * iterated + radDistance)
+            ctx.stroke()  
+            ctx.beginPath()
+            ctx.lineWidth = 4
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 96, 4 * Math.PI / 3 - rotSpeedMid * iterated, 2 * Math.PI - rotSpeedMid * iterated)
+            ctx.stroke()
+            ctx.beginPath()
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 96, Math.PI / 3 - rotSpeedMid * iterated, Math.PI - rotSpeedMid * iterated)
+            ctx.stroke()
+            ctx.beginPath()
+            ctx.lineWidth = 6
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 105, 0 + rotSpeedOuter * iterated, Math.PI + rotSpeedOuter * iterated)
+            ctx.stroke()
+            ctx.beginPath()
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 105, 4 * Math.PI / 3 + rotSpeedOuter * iterated, 5 * Math.PI / 3 + rotSpeedOuter * iterated)
+            ctx.stroke()
+            iterated++
+          }  
     
           requestAnimationFrame(animate)
         }
 
         
         for(let i = 0; i < 4; i++){
-          stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 80 + Math.random() * 60, speed: (Math.random() * 2) + 2})
+          stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 80 + Math.random() * 60, speed: (Math.random() * 2) + 2, col: isRed()})
         }
 
         animate()
