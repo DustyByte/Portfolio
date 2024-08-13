@@ -21,17 +21,15 @@ export default function Home(){
                                                            
         const stars = []
         
+        const growthFactor = 0.1
         function draw(star){
-          const stepLen = star.len / 20
-          const growthFactor = 0.1
           for(let step = 0; step < 5; step++){
             ctx.beginPath()
-            ctx.moveTo(star.x + (step * stepLen), star.y + (step * stepLen))
-            ctx.lineTo(star.x + ((step + 1) * stepLen), star.y + ((step + 1) * stepLen))
+            ctx.moveTo(star.x + (step * star.len / 20), star.y + (step * star.len / 20))
+            ctx.lineTo(star.x + ((step + 1) * star.len / 20), star.y + ((step + 1) * star.len / 20))
             ctx.strokeStyle = star.col
             ctx.lineWidth = (step + 1) * growthFactor
-            ctx.lineCap = `round`
-            ctx.shadowBlur = 100 / (step + 1)
+            ctx.shadowBlur = 50 / (step + 1)
             ctx.shadowOffsetX = 0
             ctx.shadowColor = `#1581F7`
             ctx.stroke()
@@ -51,10 +49,10 @@ export default function Home(){
           
           for(let star = 0; star < stars.length; star++){
             if(stars[star].x > canvas.width || stars[star].y > canvas.height){
-              stars[star].x = (Math.random() - 1) * canvas.width
+              stars[star].x = (Math.random() - 1) * 1.5 * canvas.width
               stars[star].y = (Math.random() - 1) * canvas.height
               stars[star].len = 100 + Math.random() * 60
-              stars[star].speed = (Math.random() * 2) + 2
+              stars[star].speed = (Math.random() * 2) + 1.5
             }else {
               stars[star].x += stars[star].speed 
               stars[star].y += stars[star].speed 
@@ -94,7 +92,7 @@ export default function Home(){
         }
 
         
-        for(let i = 0; i < 4; i++){
+        for(let i = 0; i < 5; i++){
           stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 80 + Math.random() * 60, speed: (Math.random() * 2) + 2, col: isRed()})
         }
 
