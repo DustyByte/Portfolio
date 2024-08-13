@@ -24,7 +24,7 @@ export default function Home(){
         function draw(star){
           const stepLen = star.len / 20
           const growthFactor = 0.1
-          for(let step = 0; step < 20; step++){
+          for(let step = 0; step < 10; step++){
             ctx.beginPath()
             ctx.moveTo(star.x + (step * stepLen), star.y + (step * stepLen))
             ctx.lineTo(star.x + ((step + 1) * stepLen), star.y + ((step + 1) * stepLen))
