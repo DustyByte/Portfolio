@@ -6,8 +6,6 @@ canvas{
     left: 0px;
     z-index: -1;  
     background-color: #091C2A;
-    width: 100svw;
-    height: 100svh;
 }
 
 .homeContainer{

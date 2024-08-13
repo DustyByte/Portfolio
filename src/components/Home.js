@@ -6,14 +6,16 @@ import "./home.css"
         
 export default function Home(){
     const [height, setHeight] = useState(null)
+    const [width, setWidth] = useState(null)
 
     useEffect(() => {
         const canvas = document.getElementById(`canvas`)
         const ctx = canvas.getContext(`2d`)
         
-        console.log(canvas.width)
-   
-        setHeight(canvas.height);                                                     
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        setHeight(canvas.height) 
+        setWidth(canvas.width)                                                    
         const stars = []
         
         function draw(star){
@@ -107,7 +109,8 @@ export default function Home(){
                     <span>Front-end Developer</span>
                 </div>
                 <img src="/favicon.ico" alt=""/>
-                {height}
+                H: {height} 
+                W: {width}
             </div>
         </div>
     )
