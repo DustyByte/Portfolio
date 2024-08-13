@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./home.css"
 /*git add .
-        git commit -m "adding functionality to hamburger menu"
+        git commit -m "Added nav buttons"
         git push*/
 
 function isRed(){
@@ -104,11 +104,21 @@ export default function Home(){
         <div className="homeContainer">
             <canvas id='canvas'></canvas> 
             <div className={burgerOpen ? "top open" : "top"} >
-                <h2>Mashnun</h2>
-                <div onClick={() => setBurgerOpen(prev => !prev)} className="hamBurger" >
-                    <hr className="left"/>
-                    <hr className="right"/>
-                </div>
+              <div>
+                  <h2>Mashnun</h2>
+                  <div onClick={() => setBurgerOpen(prev => !prev)} className="hamBurger" >
+                      <hr className="left"/>
+                      <hr className="right"/>
+                  </div>
+              </div>
+              {burgerOpen && <ul>
+                <li>Home</li>
+                <li>About me</li>
+                <li>Projects</li>
+                <li>Academics</li>
+                <li>Skills</li>
+                <li>Contact me</li>
+              </ul>}
             </div>
             <div className="homeBody" style={{paddingTop: window.innerHeight / 6}} >
                 <div className="introduction">

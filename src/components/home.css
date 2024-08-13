@@ -17,29 +17,44 @@ canvas{
 
 .top{
     transition: all 0.3s ease;
+    padding: 10px;
     margin-left: 20px;
-    padding-left: 10px;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-right: 20px;
-    padding-right: 10px;
+}
+
+.top > div{
     display: flex;
     align-items: center;
     justify-content: space-between;
     }
-    
+
 .open{
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(5px) saturate(60%);
     border-radius: 8px;
     }
 
-.top > h2{
+.top > div > h2{
     margin: 0px;
     color: white;
     font-family: "Charmonman", cursive;
 }
 
-.top > .hamBurger > hr{
+.top > div > .hamBurger > hr{
     width: 24px;
+}
+
+.top > ul{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
 }
 
 
