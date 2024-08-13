@@ -11,10 +11,9 @@ export default function Home(){
         const canvas = document.getElementById(`canvas`)
         const ctx = canvas.getContext(`2d`)
         
-        canvas.width = window.innerWidth
         console.log(canvas.width)
-        canvas.height = window.innerHeight   
-        setHeight(window.innerHeight);                                                     
+   
+        setHeight(canvas.height);                                                     
         const stars = []
         
         function draw(star){
