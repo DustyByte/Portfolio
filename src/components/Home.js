@@ -53,7 +53,7 @@ export default function Home(){
             if(stars[star].x > canvas.width || stars[star].y > canvas.height){
               stars[star].x = (Math.random() - 1) * canvas.width
               stars[star].y = (Math.random() - 1) * canvas.height
-              stars[star].len = 130 + Math.random() * 60
+              stars[star].len = 100 + Math.random() * 60
               stars[star].speed = (Math.random() * 2) + 2
             }else {
               stars[star].x += stars[star].speed 
