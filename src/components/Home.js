@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./home.css"
 /*git add .
-        git commit -m "building the canvas"
+        git commit -m "adding functionality to hamburger menu"
         git push*/
 
 function isRed(){
@@ -13,7 +13,7 @@ export default function Home(){
     const hero = useRef(null)
     
 
-    useEffect(() => {
+    useEffect(() => {    
         const canvas = document.getElementById(`canvas`)
         const ctx = canvas.getContext(`2d`)
         

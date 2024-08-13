@@ -25,11 +25,12 @@ canvas{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    &.open{
-        background-color: rgba(0, 0, 0, 0.25);
-        border-radius: 8px;
     }
-}
+    
+.open{
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    }
 
 .top > h2{
     margin: 0px;
