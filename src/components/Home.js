@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import "./home.css"
 /*git add .
         git commit -m "building the canvas"
@@ -9,6 +9,7 @@ function isRed(){
 }        
         
 export default function Home(){
+    const [burgerOpen, setBurgerOpen] = useState(false)
     const hero = useRef(null)
     
 
@@ -102,9 +103,9 @@ export default function Home(){
     return (
         <div className="homeContainer">
             <canvas id='canvas'></canvas> 
-            <div className="top" >
+            <div className={burgerOpen ? "top open" : "top"} >
                 <h2>Mashnun</h2>
-                <div className="hamBurger" >
+                <div onClick={() => setBurgerOpen(prev => !prev)} className="hamBurger" >
                     <hr className="left"/>
                     <hr className="right"/>
                 </div>
