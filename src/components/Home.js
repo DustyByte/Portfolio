@@ -107,12 +107,11 @@ export default function Home(){
               <div>
                   <h2>Mashnun</h2>
                   <div onClick={() => setBurgerOpen(prev => !prev)} className="hamBurger" >
-                      <hr className="left"/>
-                      <hr className="right"/>
+                      <hr style={burgerOpen ? {margin : '0px 0px 2px 0px'} : {}}/>
+                      <hr style={burgerOpen ? {margin : '2px 0px 0px 0px'} : {}}/>
                   </div>
               </div>
               {burgerOpen && <ul>
-                <li>Home</li>
                 <li>About me</li>
                 <li>Projects</li>
                 <li>Academics</li>

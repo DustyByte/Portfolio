@@ -43,6 +43,7 @@ canvas{
 
 .top > div > .hamBurger > hr{
     width: 24px;
+    transition: all 0.2s ease-in;
 }
 
 .top > ul{
@@ -61,7 +62,6 @@ canvas{
 .homeBody{
     margin-left: 30px;
     margin-right: 30px;
-    padding-top: 76px;
     flex-grow: 1;
     display: flex;
     align-items: center;
