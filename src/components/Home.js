@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import "./home.css"
 /*git add .
-        git commit -m "added canvas for test"
+        git commit -m "building the canvas"
         git push*/
 
 function isRed(){
@@ -24,7 +24,7 @@ export default function Home(){
         function draw(star){
           const stepLen = star.len / 20
           const growthFactor = 0.1
-          for(let step = 0; step < 10; step++){
+          for(let step = 0; step < 5; step++){
             ctx.beginPath()
             ctx.moveTo(star.x + (step * stepLen), star.y + (step * stepLen))
             ctx.lineTo(star.x + ((step + 1) * stepLen), star.y + ((step + 1) * stepLen))
@@ -53,7 +53,7 @@ export default function Home(){
             if(stars[star].x > canvas.width || stars[star].y > canvas.height){
               stars[star].x = (Math.random() - 1) * canvas.width
               stars[star].y = (Math.random() - 1) * canvas.height
-              stars[star].len = 80 + Math.random() * 60
+              stars[star].len = 130 + Math.random() * 60
               stars[star].speed = (Math.random() * 2) + 2
             }else {
               stars[star].x += stars[star].speed 
