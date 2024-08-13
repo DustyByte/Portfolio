@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import "./home.css"
 /*git add .
         git commit -m "added canvas for test"
         git push*/
         
 export default function Home(){
-    const [height, setHeight] = useState(null)
-    const [width, setWidth] = useState(null)
+    const hero = useRef(null)
     const topPush = {
-      paddingTop: window.innerHeight/2 - (76+61+70) - 170/2
+      paddingTop: window.innerHeight / 6
     }
     
 
@@ -18,8 +17,7 @@ export default function Home(){
         
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
-        setHeight(canvas.height) 
-        setWidth(canvas.width)                                                    
+                                                           
         const stars = []
         
         function draw(star){
@@ -47,31 +45,35 @@ export default function Home(){
         
         function animate(){          
           ctx.clearRect(0, 0, canvas.width, canvas.height)  
-          ctx.beginPath()
-          ctx.lineWidth = 2
-          ctx.lineCap = `round`
-          ctx.strokeStyle = `#004374`
-          ctx.shadowBlur = 0
-          ctx.arc(canvas.width / 2, canvas.height / 2, 90, Math.PI + rotSpeed * iterated, Math.PI + rotSpeed * iterated + radDistance)
-          ctx.stroke() 
-          ctx.beginPath() 
-          ctx.arc(canvas.width / 2, canvas.height / 2, 90, rotSpeed * iterated, rotSpeed * iterated + radDistance)
-          ctx.stroke()  
-          ctx.beginPath()
-          ctx.lineWidth = 4
-          ctx.arc(canvas.width / 2, canvas.height / 2, 96, 4 * Math.PI / 3 - rotSpeed * iterated, 2 * Math.PI - rotSpeed * iterated)
-          ctx.stroke()
-          ctx.beginPath()
-          ctx.arc(canvas.width / 2, canvas.height / 2, 96, Math.PI / 3 - rotSpeed * iterated, Math.PI - rotSpeed * iterated)
-          ctx.stroke()
-          ctx.beginPath()
-          ctx.lineWidth = 6
-          ctx.arc(canvas.width / 2, canvas.height / 2, 105, 0 + rotSpeed * iterated, Math.PI + rotSpeed * iterated)
-          ctx.stroke()
-          ctx.beginPath()
-          ctx.arc(canvas.width / 2, canvas.height / 2, 105, 4 * Math.PI / 3 + rotSpeed * iterated, 5 * Math.PI / 3 + rotSpeed * iterated)
-          ctx.stroke()
-          iterated++
+          
+          if(hero){
+            ctx.beginPath()
+            ctx.lineWidth = 2
+            ctx.lineCap = `round`
+            ctx.strokeStyle = `#004374`
+            ctx.shadowBlur = 0
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 90, Math.PI + rotSpeed * iterated, Math.PI + rotSpeed * iterated + radDistance)
+            ctx.stroke() 
+            ctx.beginPath() 
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 90, rotSpeed * iterated, rotSpeed * iterated + radDistance)
+            ctx.stroke()  
+            ctx.beginPath()
+            ctx.lineWidth = 4
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 96, 4 * Math.PI / 3 - rotSpeed * iterated, 2 * Math.PI - rotSpeed * iterated)
+            ctx.stroke()
+            ctx.beginPath()
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 96, Math.PI / 3 - rotSpeed * iterated, Math.PI - rotSpeed * iterated)
+            ctx.stroke()
+            ctx.beginPath()
+            ctx.lineWidth = 6
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 105, 0 + rotSpeed * iterated, Math.PI + rotSpeed * iterated)
+            ctx.stroke()
+            ctx.beginPath()
+            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 105, 4 * Math.PI / 3 + rotSpeed * iterated, 5 * Math.PI / 3 + rotSpeed * iterated)
+            ctx.stroke()
+            iterated++
+          }
+            
     
           for(let star = 0; star < stars.length; star++){
             if(stars[star].x > canvas.width || stars[star].y > canvas.height){
@@ -93,7 +95,7 @@ export default function Home(){
         for(let i = 0; i < 4; i++){
           stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 80 + Math.random() * 60, speed: (Math.random() * 2) + 2})
         }
-       
+        console.log(hero)
         animate()
       }, [])
 
@@ -112,9 +114,7 @@ export default function Home(){
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>
                 </div>
-                <img src="/favicon.ico" alt=""/>
-                H: {height} 
-                W: {width}
+                <img ref={hero} src="/favicon.ico" alt=""/>
             </div>
         </div>
     )
