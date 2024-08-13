@@ -1,10 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import "./home.css"
 /*git add .
         git commit -m "added canvas for test"
         git push*/
         
 export default function Home(){
+    const [height, setHeight] = useState(null)
 
     useEffect(() => {
         const canvas = document.getElementById(`canvas`)
@@ -12,7 +13,8 @@ export default function Home(){
         
         canvas.width = window.innerWidth
         console.log(canvas.width)
-        canvas.height = window.innerHeight
+        canvas.height = window.innerHeight   
+        setHeight(window.innerHeight);                                                     
         const stars = []
         
         function draw(star){
@@ -106,6 +108,7 @@ export default function Home(){
                     <span>Front-end Developer</span>
                 </div>
                 <img src="/favicon.ico" alt=""/>
+                {height}
             </div>
         </div>
     )
