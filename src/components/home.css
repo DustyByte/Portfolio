@@ -21,19 +21,20 @@ canvas{
     margin-left: 20px;
     margin-top: 20px;
     margin-right: 20px;
+    height: auto;
 }
 
 .top > div{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    }
+}
 
 .open{
     background-color: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(5px) saturate(60%);
     border-radius: 8px;
-    }
+}
 
 .top > div > h2{
     margin: 0px;

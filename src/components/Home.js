@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./home.css"
 /*git add .
-        git commit -m "Added nav buttons"
+        git commit -m "Fixed displacement"
         git push*/
 
 function isRed(){
@@ -11,6 +11,12 @@ function isRed(){
 export default function Home(){
     const [burgerOpen, setBurgerOpen] = useState(false)
     const hero = useRef(null)
+
+    function handleBurger(){
+      setBurgerOpen(prev => !prev)
+      const ul = document.getElementById('ul')
+      console.log(ul.style)
+    }
     
 
     useEffect(() => {    
@@ -91,7 +97,6 @@ export default function Home(){
     
           requestAnimationFrame(animate)
         }
-
         
         for(let i = 0; i < 5; i++){
           stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 80 + Math.random() * 60, speed: (Math.random() * 2) + 2, col: isRed()})
@@ -106,20 +111,24 @@ export default function Home(){
             <div className={burgerOpen ? "top open" : "top"} >
               <div>
                   <h2>Mashnun</h2>
-                  <div onClick={() => setBurgerOpen(prev => !prev)} className="hamBurger" >
+                  <div onClick={() => handleBurger()} className="hamBurger" >
                       <hr style={burgerOpen ? {margin : '0px 0px 2px 0px'} : {}}/>
                       <hr style={burgerOpen ? {margin : '2px 0px 0px 0px'} : {}}/>
                   </div>
               </div>
-              {burgerOpen && <ul>
-                <li>About me</li>
-                <li>Projects</li>
-                <li>Academics</li>
-                <li>Skills</li>
-                <li>Contact me</li>
-              </ul>}
+              <ul id='ul'>
+                {burgerOpen &&
+                  <>
+                    <li>About me</li>
+                    <li>Projects</li>
+                    <li>Academics</li>
+                    <li>Skills</li>
+                    <li>Contact me</li>
+                  </>
+                }
+              </ul>
             </div>
-            <div className="homeBody" style={{paddingTop: window.innerHeight / 6}} >
+            <div className="homeBody" style={{paddingTop: burgerOpen ? window.innerHeight / 6 - 13 : window.innerHeight / 6}} >
                 <div className="introduction">
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>
