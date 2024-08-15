@@ -1,4 +1,11 @@
 .App {
   text-align: center;
-  height: 100svh;
-}                                                                                                                                                                                                                                   
+}             
+
+.App > canvas{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  z-index: 2;
+}

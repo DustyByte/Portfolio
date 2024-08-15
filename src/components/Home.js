@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./home.css"
 /*git add .
-        git commit -m "Fixed displacement"
+        git commit -m "Added secondary canvas to intercept touch"
         git push*/
 
 function isRed(){
@@ -14,8 +14,6 @@ export default function Home(){
 
     function handleBurger(){
       setBurgerOpen(prev => !prev)
-      const ul = document.getElementById('ul')
-      console.log(ul.style)
     }
     
 
@@ -25,7 +23,7 @@ export default function Home(){
         
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
-                                                           
+
         const stars = []
         
         const growthFactor = 0.1
@@ -105,6 +103,8 @@ export default function Home(){
         animate()
       }, [])
 
+
+
     return (
         <div className="homeContainer">
             <canvas id='canvas'></canvas> 
@@ -116,7 +116,7 @@ export default function Home(){
                       <hr style={burgerOpen ? {margin : '2px 0px 0px 0px'} : {}}/>
                   </div>
               </div>
-              <ul id='ul'>
+              <ul>
                 {burgerOpen &&
                   <>
                     <li>About me</li>
@@ -133,7 +133,7 @@ export default function Home(){
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>
                 </div>
-                <img ref={hero} src="/favicon.ico" alt=""/>
+                <img ref={hero} src="/nedStark.jpeg" alt=""/>
             </div>
         </div>
     )
