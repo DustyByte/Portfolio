@@ -10,19 +10,56 @@ function App() {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 
+    const objects = []
+
     function handleClick(e){
-      console.log(e)
     }
 
     function handleTap(e){
-      ctx.beginPath()
-      ctx.arc(e.touches[0].clientX, e.touches[0].clientY, 10, 0, 2 * Math.PI)
-      ctx.fillStyle = '#121212'
-      ctx.stroke()
-      ctx.fill()
-      console.log(e)
-      console.log(ctx)
+      for(let i = 0; i < 5; i++){
+        objects.push({
+          x: e.touches[0].clientX, 
+          y: e.touches[0].clientY, 
+          rad: Math.random() * 5 + 5, 
+          dissipateSpeed: 0.05,
+          speed: {
+            x: (Math.random() * 2 - 1) * 5,
+            y: (Math.random() * 2 - 1) * 5
+          }
+        })
+      }
+
+      ctx.fillStyle = 'red'
     }
+
+    function animate(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+
+
+      for(let objectIndex = 0; objectIndex < objects.length; objectIndex++){
+        // Updating the poperties of the object
+        objects[objectIndex].x += objects[objectIndex].speed.x
+        objects[objectIndex].y += objects[objectIndex].speed.y
+        objects[objectIndex].rad -= objects[objectIndex].dissipateSpeed
+        if(objects[objectIndex].rad < 0){
+          objects.splice(objectIndex, 1)
+          // Setting the index a step behind so we dont miss an object in the objects array
+          objectIndex--
+        }
+        else{
+          // Drawing the object
+          ctx.beginPath()
+          ctx.arc(objects[objectIndex].x, objects[objectIndex].y, objects[objectIndex].rad, 0, Math.PI * 2)
+          ctx.stroke()
+          ctx.fill()
+        }
+      }
+
+      requestAnimationFrame(animate)
+    }
+
+    animate()
 
     window.addEventListener('mouseup', handleClick)
     window.addEventListener('touchstart', handleTap)

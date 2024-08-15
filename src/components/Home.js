@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./home.css"
 /*git add .
-        git commit -m "Added secondary canvas to intercept touch"
+        git commit -m "Added secondary canvas's touch effect"
         git push*/
 
 function isRed(){
