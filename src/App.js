@@ -7,8 +7,12 @@ function App() {
   useEffect(() => {
     const canvas = document.getElementById('tapEffectCanvas')
     const ctx = canvas.getContext("2d")
+    
+    const app = document.getElementById('app')
+
     canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
+    canvas.height = app.clientHeight
+
     
     const objects = []
     
@@ -26,8 +30,8 @@ function App() {
       for(let touch = 0; touch < e.touches.length; touch++){
         for(let i = 0; i < 3; i++){
           objects.push({
-            x: e.touches[touch].clientX, 
-            y: e.touches[touch].clientY, 
+            x: e.touches[touch].pageX, 
+            y: e.touches[touch].pageY, 
             rad: Math.random() * 5 + 5, 
             dissipateSpeed: 0.2,
             speed: {
@@ -95,7 +99,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div className="App" id='app'>
       <canvas id='tapEffectCanvas'></canvas>
       <Home />
       <div style={{height: '500px'}}></div>

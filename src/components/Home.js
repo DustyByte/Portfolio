@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./home.css"
 /*git add .
-        git commit -m "Improved the touch effect"
+        git commit -m "fixed improper padding for phone"
         git push*/
 
 function isRed(){
@@ -16,7 +16,6 @@ export default function Home(){
       setBurgerOpen(prev => !prev)
     }
     
-
     useEffect(() => {    
         const canvas = document.getElementById(`canvas`)
         const ctx = canvas.getContext(`2d`)
@@ -112,11 +111,11 @@ export default function Home(){
               <div>
                   <h2>Mashnun</h2>
                   <div onClick={() => handleBurger()} className="hamBurger" >
-                      <hr style={burgerOpen ? {margin : '0px 0px 2px 0px'} : {}}/>
-                      <hr style={burgerOpen ? {margin : '2px 0px 0px 0px'} : {}}/>
+                      <hr style={burgerOpen ? {margin : '11px 0px 2px 0px'} : {}}/>
+                      <hr style={burgerOpen ? {margin : '2px 0px 11px 0px'} : {}}/>
                   </div>
               </div>
-              <ul>
+              <ul >
                 {burgerOpen &&
                   <>
                     <li>About me</li>
@@ -128,7 +127,7 @@ export default function Home(){
                 }
               </ul>
             </div>
-            <div className="homeBody" style={{paddingTop: burgerOpen ? window.innerHeight / 6 - 13 : window.innerHeight / 6}} >
+            <div className="homeBody" style={{paddingTop: window.innerHeight / 8}} >
                 <div className="introduction">
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>
