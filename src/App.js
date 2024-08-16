@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
+import { isMobile } from 'react-device-detect'
+import HomeMobile from './components/Mobile/HomeMobile'
+import HomePC from './components/PC/HomePC'
 import './App.css'
-import Home from './components/Home'
 
 function App() {
 
@@ -17,19 +19,39 @@ function App() {
     const objects = []
     
     function handleClick(e){
-    }
-    
-    function handleTap(e){
-      console.log(e)
       ctx.fillStyle = '#3373FF'
       ctx.shadowColor = '3395FF'
       ctx.shadowOffsetX = 0
       ctx.shadowOffsetY = 0
       ctx.shadowBlur = 10
 
+      const ballAmount = 3
+
+      for(let i = 0; i < ballAmount; i++){
+        objects.push({
+          x: e.pageX, 
+          y: e.pageY, 
+          rad: Math.random() * 5 + 5, 
+          dissipateSpeed: 0.2,
+          speed: {
+            x: (Math.random() * 2 - 1) * 1.5,
+            y: (Math.random() * 2 - 1) * 1.5
+          }
+        })
+      }
+    }
+    
+    function handleTap(e){
+      ctx.fillStyle = '#3373FF'
+      ctx.shadowColor = '3395FF'
+      ctx.shadowOffsetX = 0
+      ctx.shadowOffsetY = 0
+      ctx.shadowBlur = 10
+
+      const ballAmount = 3
       
       for(let touch = 0; touch < e.touches.length; touch++){
-        for(let i = 0; i < 3; i++){
+        for(let i = 0; i < ballAmount; i++){
           objects.push({
             x: e.touches[touch].pageX, 
             y: e.touches[touch].pageY, 
@@ -102,8 +124,7 @@ function App() {
   return (
     <div className="App" id='app'>
       <canvas id='tapEffectCanvas'></canvas>
-      <Home />
-      <div style={{height: '500px'}}></div>
+      {isMobile ? <HomeMobile /> : <HomePC /> }      
     </div>
   )
 }

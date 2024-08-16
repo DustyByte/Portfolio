@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&display=swap');
 
-.homeContainer > canvas{
+.homeMobileContainer > canvas{
     position: absolute;
     top: 0px;
     left: 0px;
@@ -9,13 +9,13 @@
     
 }
 
-.homeContainer{
+.homeMobileContainer{
     display: flex;
     flex-direction: column;
     height: 100svh;
 }
 
-.top{
+.homeMobileTop{
     transition: all 0.3s ease;
     padding: 10px;
     margin-left: 20px;
@@ -24,7 +24,7 @@
     height: auto;
 }
 
-.top > div{
+.homeMobileTop > div{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,18 +36,18 @@
     border-radius: 8px;
 }
 
-.top > div > h2{
+.homeMobileTop > div > h2{
     margin: 0px;
     color: white;
     font-family: "Charmonman", cursive;
 }
 
-.top > div > .hamBurger > hr{
+.homeMobileTop > div > .hamBurger > hr{
     width: 24px;
     transition: all 0.2s ease-in;
 }
 
-.top > ul{
+.homeMobileTop > ul{
     text-decoration: none;
     color: white;
     display: flex;
@@ -61,7 +61,7 @@
 }
 
 
-.homeBody{
+.homeMobileBody{
     margin-left: 30px;
     margin-right: 30px;
     flex-grow: 1;
@@ -72,19 +72,19 @@
 
 }
 
-.homeBody > img{
+.homeMobileBody > img{
     width: 170px;
     height: 170px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.homeBody > .introduction > h1{
+.homeMobileBody > .introduction > h1{
     margin: 0px;
     color: white;
 }
 
-.homeBody > .introduction > span{
+.homeMobileBody > .introduction > span{
     color: #02ABF6;
     font-size: 22px;
     font-weight: 700;

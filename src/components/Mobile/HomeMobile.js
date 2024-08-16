@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react"
-import "./home.css"
+import "./homeMobile.css"
 /*git add .
-        git commit -m "Fixed bugs"
-        git push*/
+git commit -m "Fixed bugs"
+git push*/
 
 function isRed(){
   return (Math.random() < 0.2 ? `red` : `#50AFFF`)
 }        
         
-export default function Home(){
+export default function HomeMobile(){
     const [burgerOpen, setBurgerOpen] = useState(false)
 
     function handleBurger(){
@@ -110,9 +110,9 @@ export default function Home(){
 
 
     return (
-        <div className="homeContainer">
+        <div className="homeMobileContainer">
             <canvas id='canvas'></canvas> 
-            <div className={burgerOpen ? "top open" : "top"} >
+            <div className={burgerOpen ? "homeMobileTop open" : "homeMobileTop"} >
               <div>
                   <h2>Mashnun</h2>
                   <div onClick={() => handleBurger()} className="hamBurger" >
@@ -132,7 +132,7 @@ export default function Home(){
                 }
               </ul>
             </div>
-            <div className="homeBody" style={{paddingTop: window.innerHeight / 8}} >
+            <div className="homeMobileBody" style={{paddingTop: window.innerHeight / 8}} >
                 <div className="introduction">
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>
