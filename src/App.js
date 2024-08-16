@@ -42,6 +42,23 @@ function App() {
     function animate(){
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
+      for(let i in objects){
+        //Drawing the lines
+        for(let j = i; j < objects.length; j++){
+          if(Math.sqrt(
+            Math.pow((objects[i].x - objects[j].x) , 2) + 
+            Math.pow((objects[i].y - objects[j].y) , 2)
+            ) < 30){
+              ctx.beginPath()
+              ctx.moveTo(objects[i].x, objects[i].y)
+              ctx.lineTo(objects[j].x, objects[j].y)
+              ctx.strokeStyle = '#AAAFFF'
+              ctx.lineWidth = 1
+              ctx.stroke()
+          }
+        }
+      }
+      
 
       for(let objectIndex = 0; objectIndex < objects.length; objectIndex++){
         // Updating the poperties of the object
@@ -54,21 +71,6 @@ function App() {
           objectIndex--
         }
         else{
-          //Drawing the lines
-          for(let j = objectIndex + 1; j < objects.length; j++){
-            if(Math.sqrt(
-              Math.pow((objects[objectIndex].x - objects[j].x) , 2) + 
-              Math.pow((objects[objectIndex].y - objects[j].y) , 2)
-              ) < 30){
-                ctx.beginPath()
-                ctx.moveTo(objects[objectIndex].x, objects[objectIndex].y)
-                ctx.lineTo(objects[j].x, objects[j].y)
-                ctx.strokeStyle = '#AAAFFF'
-                ctx.lineWidth = 1
-                ctx.stroke()
-            }
-          }
-          
           // Drawing the object
           ctx.beginPath()
           ctx.arc(objects[objectIndex].x, objects[objectIndex].y, objects[objectIndex].rad, 0, Math.PI * 2)
