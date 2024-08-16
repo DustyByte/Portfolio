@@ -10,7 +10,6 @@ function isRed(){
         
 export default function Home(){
     const [burgerOpen, setBurgerOpen] = useState(false)
-    const hero = useRef(null)
 
     function handleBurger(){
       setBurgerOpen(prev => !prev)
@@ -47,10 +46,14 @@ export default function Home(){
         const rotSpeedMid = 0.04 * dampen
         const rotSpeedOuter = 0.02 * dampen
         const radDistance = Math.PI / 2
+
+        const hero = document.getElementById('hero').getBoundingClientRect()
         
         function animate(){          
-          ctx.clearRect(0, 0, canvas.width, canvas.height)  
+          ctx.clearRect(0, 0, canvas.width, canvas.height) 
           
+          
+          // Updating the stars of the background
           for(let star = 0; star < stars.length; star++){
             if(stars[star].x > canvas.width || stars[star].y > canvas.height){
               stars[star].x = (Math.random() - 1) * 1.5 * canvas.width
@@ -64,37 +67,39 @@ export default function Home(){
             }
           }
 
-          if(hero){
-            ctx.beginPath()
-            ctx.lineWidth = 2
-            ctx.lineCap = `round`
-            ctx.strokeStyle = `#004374`
-            ctx.shadowBlur = 0
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 90, Math.PI + rotSpeedInner * iterated, Math.PI + rotSpeedInner * iterated + radDistance)
-            ctx.stroke() 
-            ctx.beginPath() 
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 90, rotSpeedInner * iterated, rotSpeedInner * iterated + radDistance)
-            ctx.stroke()  
-            ctx.beginPath()
-            ctx.lineWidth = 4
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 96, 4 * Math.PI / 3 - rotSpeedMid * iterated, 2 * Math.PI - rotSpeedMid * iterated)
-            ctx.stroke()
-            ctx.beginPath()
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 96, Math.PI / 3 - rotSpeedMid * iterated, Math.PI - rotSpeedMid * iterated)
-            ctx.stroke()
-            ctx.beginPath()
-            ctx.lineWidth = 6
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 105, 0 + rotSpeedOuter * iterated, Math.PI + rotSpeedOuter * iterated)
-            ctx.stroke()
-            ctx.beginPath()
-            ctx.arc(hero.current.x + hero.current.width/2, hero.current.y + hero.current.height/2, 105, 4 * Math.PI / 3 + rotSpeedOuter * iterated, 5 * Math.PI / 3 + rotSpeedOuter * iterated)
-            ctx.stroke()
-            iterated++
-          }  
-    
+          // drawing the circles around portfolio picture
+          ctx.beginPath()
+          ctx.lineWidth = 2
+          ctx.lineCap = `round`
+          ctx.strokeStyle = `#004374`
+          ctx.shadowBlur = 0
+          ctx.arc(hero.x + hero.width/2, hero.y + hero.height/2, 90, Math.PI + rotSpeedInner * iterated, Math.PI + rotSpeedInner * iterated + radDistance)
+          ctx.stroke() 
+          ctx.beginPath() 
+          ctx.arc(hero.x + hero.width/2, hero.y + hero.height/2, 90, rotSpeedInner * iterated, rotSpeedInner * iterated + radDistance)
+          ctx.stroke()  
+          ctx.beginPath()
+          ctx.lineWidth = 4
+          ctx.arc(hero.x + hero.width/2, hero.y + hero.height/2, 96, 4 * Math.PI / 3 - rotSpeedMid * iterated, 2 * Math.PI - rotSpeedMid * iterated)
+          ctx.stroke()
+          ctx.beginPath()
+          ctx.arc(hero.x + hero.width/2, hero.y + hero.height/2, 96, Math.PI / 3 - rotSpeedMid * iterated, Math.PI - rotSpeedMid * iterated)
+          ctx.stroke()
+          ctx.beginPath()
+          ctx.lineWidth = 6
+          ctx.arc(hero.x + hero.width/2, hero.y + hero.height/2, 105, 0 + rotSpeedOuter * iterated, Math.PI + rotSpeedOuter * iterated)
+          ctx.stroke()
+          ctx.beginPath()
+          ctx.arc(hero.x + hero.width/2, hero.y + hero.height/2, 105, 4 * Math.PI / 3 + rotSpeedOuter * iterated, 5 * Math.PI / 3 + rotSpeedOuter * iterated)
+          ctx.stroke()
+          iterated++
+
+
           requestAnimationFrame(animate)
         }
         
+
+        // Pushing 5 initial stars
         for(let i = 0; i < 5; i++){
           stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 80 + Math.random() * 60, speed: (Math.random() * 2) + 2, col: isRed()})
         }
@@ -132,7 +137,7 @@ export default function Home(){
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>
                 </div>
-                <img ref={hero} src="/nedStark.jpeg" alt=""/>
+                <img id='hero' src="/nedStark.jpeg" alt=""/>
             </div>
         </div>
     )

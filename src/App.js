@@ -20,6 +20,7 @@ function App() {
     }
     
     function handleTap(e){
+      console.log(e)
       ctx.fillStyle = '#3373FF'
       ctx.shadowColor = '3395FF'
       ctx.shadowOffsetX = 0
