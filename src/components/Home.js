@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./home.css"
 /*git add .
-        git commit -m "fixed improper padding for phone"
+        git commit -m "Fixed bugs"
         git push*/
 
 function isRed(){
