@@ -9,33 +9,39 @@ function App() {
     const ctx = canvas.getContext("2d")
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
-
+    
     const objects = []
-
+    
     function handleClick(e){
     }
-
+    
     function handleTap(e){
-      for(let i = 0; i < 5; i++){
-        objects.push({
-          x: e.touches[0].clientX, 
-          y: e.touches[0].clientY, 
-          rad: Math.random() * 5 + 5, 
-          dissipateSpeed: 0.05,
-          speed: {
-            x: (Math.random() * 2 - 1) * 5,
-            y: (Math.random() * 2 - 1) * 5
-          }
-        })
-      }
+      ctx.fillStyle = '#3373FF'
+      ctx.shadowColor = '3395FF'
+      ctx.shadowOffsetX = 0
+      ctx.shadowOffsetY = 0
+      ctx.shadowBlur = 10
 
-      ctx.fillStyle = 'red'
+      
+      for(let touch = 0; touch < e.touches.length; touch++){
+        for(let i = 0; i < 3; i++){
+          objects.push({
+            x: e.touches[touch].clientX, 
+            y: e.touches[touch].clientY, 
+            rad: Math.random() * 5 + 5, 
+            dissipateSpeed: 0.2,
+            speed: {
+              x: (Math.random() * 2 - 1) * 1.5,
+              y: (Math.random() * 2 - 1) * 1.5
+            }
+          })
+        }
+      }
     }
 
     function animate(){
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-
+      
 
       for(let objectIndex = 0; objectIndex < objects.length; objectIndex++){
         // Updating the poperties of the object
@@ -48,13 +54,29 @@ function App() {
           objectIndex--
         }
         else{
+          //Drawing the lines
+          for(let j = objectIndex + 1; j < objects.length; j++){
+            if(Math.sqrt(
+              Math.pow((objects[objectIndex].x - objects[j].x) , 2) + 
+              Math.pow((objects[objectIndex].y - objects[j].y) , 2)
+              ) < 30){
+                ctx.beginPath()
+                ctx.moveTo(objects[objectIndex].x, objects[objectIndex].y)
+                ctx.lineTo(objects[j].x, objects[j].y)
+                ctx.strokeStyle = '#AAAFFF'
+                ctx.lineWidth = 1
+                ctx.stroke()
+            }
+          }
+          
           // Drawing the object
           ctx.beginPath()
           ctx.arc(objects[objectIndex].x, objects[objectIndex].y, objects[objectIndex].rad, 0, Math.PI * 2)
-          ctx.stroke()
+          
           ctx.fill()
         }
       }
+
 
       requestAnimationFrame(animate)
     }
