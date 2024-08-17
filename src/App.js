@@ -4,7 +4,7 @@ import HomeMobile from './components/Mobile/HomeMobile'
 import HomePC from './components/PC/HomePC'
 import './App.css'
 /*git add .
-git commit -m "Fixed bugs"
+git commit -m "Fixed more bugs and added home page for PC"
 git push*/
 
 function App() {
@@ -34,6 +34,23 @@ function App() {
         objects.push({
           x: e.pageX, 
           y: e.pageY, 
+          rad: Math.random() * 5 + 5, 
+          dissipateSpeed: 0.2,
+          speed: {
+            x: (Math.random() * 2 - 1) * 1.5,
+            y: (Math.random() * 2 - 1) * 1.5
+          }
+        })
+      }
+    }
+    
+    function handleMouseMove(e){
+      const ballAmount = 1
+      
+      for(let i = 0; i < ballAmount; i++){
+        objects.push({
+          x: e.x, 
+          y: e.y, 
           rad: Math.random() * 5 + 5, 
           dissipateSpeed: 0.2,
           speed: {
@@ -116,11 +133,11 @@ function App() {
     animate()
 
     if(isMobile)  window.addEventListener('touchstart', handleTap)
-    else  window.addEventListener('mousedown', handleClick)
+    else  window.addEventListener('mousemove', handleMouseMove)
 
     return () => {
       if(isMobile)  window.removeEventListener('touchstart', handleTap)
-      else  window.removeEventListener('mousedown', handleClick)
+      else  window.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
 
