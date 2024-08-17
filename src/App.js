@@ -44,22 +44,22 @@ function App() {
       }
     }
     
-    function handleMouseMove(e){
-      const ballAmount = 1
+    // function handleMouseMove(e){
+    //   const ballAmount = 3
       
-      for(let i = 0; i < ballAmount; i++){
-        objects.push({
-          x: e.x, 
-          y: e.y, 
-          rad: Math.random() * 5 + 5, 
-          dissipateSpeed: 0.2,
-          speed: {
-            x: (Math.random() * 2 - 1) * 1.5,
-            y: (Math.random() * 2 - 1) * 1.5
-          }
-        })
-      }
-    }
+    //   for(let i = 0; i < ballAmount; i++){
+    //     objects.push({
+    //       x: e.x, 
+    //       y: e.y, 
+    //       rad: Math.random() * 5 + 5, 
+    //       dissipateSpeed: 0.2,
+    //       speed: {
+    //         x: (Math.random() * 2 - 1) * 1.5,
+    //         y: (Math.random() * 2 - 1) * 1.5
+    //       }
+    //     })
+    //   }
+    // }
     
     function handleTap(e){
       ctx.fillStyle = '#3373FF'
@@ -121,7 +121,7 @@ function App() {
           // Drawing the object
           ctx.beginPath()
           ctx.arc(objects[objectIndex].x, objects[objectIndex].y, objects[objectIndex].rad, 0, Math.PI * 2)
-          
+          ctx.fillStyle = '#B9A5FF'
           ctx.fill()
         }
       }
@@ -133,11 +133,11 @@ function App() {
     animate()
 
     if(isMobile)  window.addEventListener('touchstart', handleTap)
-    else  window.addEventListener('mousemove', handleMouseMove)
+    else  window.addEventListener('mousedown', handleClick)
 
     return () => {
       if(isMobile)  window.removeEventListener('touchstart', handleTap)
-      else  window.removeEventListener('mousemove', handleMouseMove)
+      else  window.removeEventListener('mousedown', handleClick)
     }
   }, [])
 
