@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react"
 import "./homeMobile.css"
-/*git add .
-git commit -m "Fixed bugs"
-git push*/
+
 
 function isRed(){
   return (Math.random() < 0.2 ? `red` : `#50AFFF`)

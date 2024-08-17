@@ -6,7 +6,7 @@ export default function HomePC(){
     return (
         <div className="homePCContainer">
             <div className="homePCTop">
-                <h2>Mashnun</h2>
+                <h1>Mashnun</h1>
                 <ul>
                     <li>About me</li>
                     <li>Projects</li>
@@ -16,11 +16,13 @@ export default function HomePC(){
                 </ul>
             </div>
             <div className="homePCBody">
-                <div className="introduction">
-                    <h1>Hi, I'm Mashnun</h1>
-                    <span>Front-end developer</span>
+                <div>
+                    <div className="introduction">
+                        <h1>Hi, I'm Mashnun</h1>
+                        <span>Front-end developer</span>
+                    </div>
+                    <img src="/nedStark.jpeg" alt="" />
                 </div>
-                <img src="/nedStark.jpeg" alt="" />
             </div>
         </div>
     )

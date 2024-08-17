@@ -3,6 +3,9 @@ import { isMobile } from 'react-device-detect'
 import HomeMobile from './components/Mobile/HomeMobile'
 import HomePC from './components/PC/HomePC'
 import './App.css'
+/*git add .
+git commit -m "Fixed bugs"
+git push*/
 
 function App() {
 
@@ -112,12 +115,12 @@ function App() {
 
     animate()
 
-    window.addEventListener('mouseup', handleClick)
-    window.addEventListener('touchstart', handleTap)
+    if(isMobile)  window.addEventListener('touchstart', handleTap)
+    else  window.addEventListener('mousedown', handleClick)
 
     return () => {
-      window.removeEventListener('mouseup', handleClick)
-      window.removeEventListener('touchstart', handleTap)
+      if(isMobile)  window.removeEventListener('touchstart', handleTap)
+      else  window.removeEventListener('mousedown', handleClick)
     }
   }, [])
 
