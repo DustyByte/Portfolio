@@ -104,8 +104,8 @@ export default function HomePC(){
             <div className="homePCTop">
                 <h1>Mashnun</h1>
                 <div className="icons">
-                  <a href="https://github.com/DustyByte" ><img fetchpriority="low" src="/githubIcon.PNG" alt="" className="github icon"/></a>
-                  <a  href="https://www.facebook.com/profile.php?id=61557519700512&mibextid=LQQJ4d" ><img fetchpriority="low" src="/facebookIcon.PNG" alt="" className="facebook icon"/></a>
+                  <a aria-label="Check out my Github profile?" href="https://github.com/DustyByte" ><img fetchpriority="low" src="/githubIcon.PNG" alt="" className="github icon"/></a>
+                  <a aria-label="Check out my Facebook profile?" href="https://www.facebook.com/profile.php?id=61557519700512&mibextid=LQQJ4d" ><img fetchpriority="low" src="/facebookIcon.PNG" alt="" className="facebook icon"/></a>
                 </div>
                 <ul>
                     <li>About me</li>
