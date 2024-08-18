@@ -4,7 +4,7 @@ import HomeMobile from './components/Mobile/HomeMobile'
 import HomePC from './components/PC/HomePC'
 import './App.css'
 /*git add .
-git commit -m "Fixed more bugs and added home page for PC"
+git commit -m "Added links for social network & github"
 git push*/
 
 function App() {
@@ -62,6 +62,7 @@ function App() {
     // }
     
     function handleTap(e){
+      console.log(e);
       ctx.fillStyle = '#3373FF'
       ctx.shadowColor = '3395FF'
       ctx.shadowOffsetX = 0

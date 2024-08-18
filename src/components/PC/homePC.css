@@ -2,7 +2,14 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+}
+
+.homePCContainer > canvas{
+    position: absolute;
+    top: 0px;
+    left: 0px;
     background-color: #091C2A;
+    z-index: -1;
 }
 
 .homePCTop{
@@ -41,6 +48,31 @@
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+.homePCTop > .icons{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.icon{
+    transition: all 0.1s ease-in;
+}
+
+.icon:hover{
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.homePCTop > .icons > a > .github{
+    width: 35px;
+}
+
+.homePCTop > .icons > a > .facebook{
+    width: 20px;
+    padding: auto;
+}
+
 .homePCBody{
     flex-grow: 1;
     display: flex;
@@ -61,6 +93,26 @@
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.homePCBody > div > .introduction{
+    position: relative;
+}
+
+.homePCBody > div > .introduction::after{
+    position: absolute;
+    content: '';
+    top: calc( 50% + 80px);
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    aspect-ratio: 1.5;
+    background-color: #02adf627;
+    z-index: -1;
+    border-radius: 100%;
+    padding: 40px;
+    filter: blur(20px);
+    transform: rotateX(60deg);
 }
 
 .homePCBody > div > .introduction > h1{

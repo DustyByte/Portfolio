@@ -69,7 +69,7 @@
     align-items: center;
     flex-direction: column;
     gap: 70px;
-
+    padding-top: 80px;
 }
 
 .homeMobileBody > img{

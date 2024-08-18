@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import "./homeMobile.css"
 
 
-function isRed(){
+export function isRed(){
   return (Math.random() < 0.2 ? `red` : `#50AFFF`)
 }        
         
@@ -46,7 +46,8 @@ export default function HomeMobile(){
         const radDistance = Math.PI / 2
 
         const hero = document.getElementById('hero').getBoundingClientRect()
-        
+        console.log(hero);
+
         function animate(){          
           ctx.clearRect(0, 0, canvas.width, canvas.height) 
           
@@ -130,7 +131,7 @@ export default function HomeMobile(){
                 }
               </ul>
             </div>
-            <div className="homeMobileBody" style={{paddingTop: window.innerHeight / 8}} >
+            <div className="homeMobileBody" >
                 <div className="introduction">
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>
