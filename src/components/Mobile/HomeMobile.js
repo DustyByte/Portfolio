@@ -136,7 +136,7 @@ export default function HomeMobile(){
                     <h1>Hi, I'm Mashnun</h1>
                     <span>Front-end Developer</span>
                 </div>
-                <img id='hero' src="/nedStark.jpeg" alt=""/>
+                <img id='hero' src="/nedStark.webp" alt=""/>
             </div>
         </div>
     )

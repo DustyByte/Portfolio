@@ -5,7 +5,7 @@ import HomePC from './components/PC/HomePC'
 import './App.css'
 import AboutMe from './components/AboutMe'
 /*git add .
-git commit -m "Added About for Mobile"
+git commit -m "Converted all png to webp for faster performance"
 git push*/
 
 function App() {
