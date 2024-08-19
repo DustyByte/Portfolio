@@ -3,7 +3,6 @@ import { isMobile } from 'react-device-detect'
 import HomeMobile from './components/Mobile/HomeMobile'
 import HomePC from './components/PC/HomePC'
 import './App.css'
-import About from './components/AboutMe'
 import AboutMe from './components/AboutMe'
 /*git add .
 git commit -m "Added About for Mobile"
