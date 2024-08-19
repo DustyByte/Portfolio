@@ -6,7 +6,7 @@ import './App.css'
 import About from './components/AboutMe'
 import AboutMe from './components/AboutMe'
 /*git add .
-git commit -m "Fixed less accessibility"
+git commit -m "Added About for Mobile"
 git push*/
 
 function App() {
@@ -146,7 +146,7 @@ function App() {
 
   return (
     <div className="App" id='app'>
-      
+
       <canvas id='tapEffectCanvas'></canvas>
       {isMobile ? <HomeMobile /> : <HomePC /> } 
 
