@@ -1,5 +1,5 @@
 .AboutContainer{
-    height: 100vh;
+    height: 100svh;
     background-color: #112E43;
     display: flex;
     flex-direction: column;
