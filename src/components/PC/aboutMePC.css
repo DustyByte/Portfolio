@@ -1,0 +1,88 @@
+.AboutPCContainer{
+    height: 100vh;
+    background-color: #112E43;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 13vh;
+}
+
+.AboutPCContainer > h1{
+    color: white;
+}
+
+.AboutPCContainer > h1 > span{
+    color: #5BA9FF;
+}
+
+.AboutPCContainer > div{
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+}
+
+
+.AboutPCContainer > div::before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: -8%;
+    width: 40%;
+    aspect-ratio: 1;
+    background-color: #0B1E2C;
+    z-index: -1;
+    animation: morph 10s ease infinite;
+}
+
+.AboutPCContainer > div > .texts{
+    text-align: left;
+    max-width: 40vw;
+}
+
+.AboutPCContainer > div > .texts > h2{
+    color: #5BA9FF;
+}
+
+.AboutPCContainer > div > .texts > h4{
+    color: white;
+}
+
+.AboutPCContainer > div > .texts > p{
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.AboutPCContainer > div > .imageWrapper > img{
+    width: 30vw;
+    position: relative;
+    top: -100px;
+}
+
+.AboutPCContainer > div > .imageWrapper::before{
+    content: '';
+    width: 30vw;
+    height: 100%;
+    background-color: #5baaff34;
+    filter: blur(80px);
+    position: absolute;
+    top: -100px;
+    transform: scale(1.2);
+    border-radius: 50%;
+}
+
+
+@keyframes morph {
+    from, to{
+        border-radius: 50% 50% 64% 27% / 75% 37% 63% 25%;
+    }
+    25%{
+        border-radius: 70% 30% 46% 54% / 30% 76% 24% 70%;
+    }
+    50%{
+        border-radius: 29% 71% 34% 66% / 62% 31% 69% 38%;
+    }
+    75%{
+        border-radius: 71% 29% 67% 33% / 34% 27% 73% 66%;
+    }
+}

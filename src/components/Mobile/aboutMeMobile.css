@@ -1,4 +1,4 @@
-.AboutContainer{
+.AboutMobileContainer{
     height: 100svh;
     background-color: #112E43;
     display: flex;
@@ -8,15 +8,15 @@
     gap: 15svh;
 }
 
-.AboutContainer > h1{
+.AboutMobileContainer > h1{
     color: white;
 }
 
-.AboutContainer > h1 > span{
+.AboutMobileContainer > h1 > span{
     color: #5BA9FF;
 }
 
-.AboutContainer > div{
+.AboutMobileContainer > div{
     display: flex;
     align-items: center;
     position: relative;
@@ -24,20 +24,20 @@
     margin-left: 30px;
 }
 
-.AboutContainer > div > img{
+.AboutMobileContainer > div > img{
     width: 180px;
     position: absolute;
     top: -100px;
     right: -100px;
 }
 
-.AboutContainer > div > .texts{
+.AboutMobileContainer > div > .texts{
     text-align: left;
     max-width: 58vw;
     position: relative;
 }
 
-.AboutContainer > div::before{
+.AboutMobileContainer > div::before{
     animation: spin 10s ease infinite;
     content: '';
     background-color: #0b1e2c;
@@ -48,15 +48,15 @@
     left: -20px;
 }
 
-.AboutContainer > div > .texts > h2{
+.AboutMobileContainer > div > .texts > h2{
     color: #5BA9FF;
 }
 
-.AboutContainer > div > .texts > h4{
+.AboutMobileContainer > div > .texts > h4{
     color: white;
 }
 
-.AboutContainer > div > .texts > p{
+.AboutMobileContainer > div > .texts > p{
     color: rgba(255, 255, 255, 0.75);
 }
 

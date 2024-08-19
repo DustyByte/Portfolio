@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import { useEffect } from "react"
+import { handleAboutClick, isRed } from "../../App"
 import './homePC.css'
-import { isRed } from "../Mobile/HomeMobile"
 
 export default function HomePC(){
 
@@ -108,7 +108,7 @@ export default function HomePC(){
                   <a aria-label="Check out my Facebook profile?" href="https://www.facebook.com/profile.php?id=61557519700512&mibextid=LQQJ4d" ><img fetchpriority="low" src="/facebookIcon.webp" alt="" className="facebook icon"/></a>
                 </div>
                 <ul>
-                    <li>About me</li>
+                    <li onClick={() => handleAboutClick()}>About me</li>
                     <li>Projects</li>
                     <li>Academics</li>
                     <li>Skills</li>

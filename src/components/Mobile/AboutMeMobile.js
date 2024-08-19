@@ -1,11 +1,10 @@
-import React from "react"
-import './aboutMe.css'
+import './aboutMeMobile.css'
 
 
-export default function AboutMe(){
+export default function AboutMeMobile(){
 
     return (
-        <div className="AboutContainer" >
+        <div className="AboutMobileContainer" id='about' >
             <h1>About <span>Me</span></h1>
             <div>
                 <div className="texts">

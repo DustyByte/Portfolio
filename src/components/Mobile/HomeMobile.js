@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { handleAboutClick, isRed } from "../../App"
 import "./homeMobile.css"
 
-
-export function isRed(){
-  return (Math.random() < 0.2 ? `red` : `#50AFFF`)
-}        
         
 export default function HomeMobile(){
     const [burgerOpen, setBurgerOpen] = useState(false)
@@ -122,7 +119,7 @@ export default function HomeMobile(){
               <ul >
                 {burgerOpen &&
                   <>
-                    <li>About me</li>
+                    <li onClick={() => handleAboutClick()}>About me</li>
                     <li>Projects</li>
                     <li>Academics</li>
                     <li>Skills</li>

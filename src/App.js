@@ -3,12 +3,25 @@ import { isMobile } from 'react-device-detect'
 import HomeMobile from './components/Mobile/HomeMobile'
 import HomePC from './components/PC/HomePC'
 import './App.css'
-import AboutMe from './components/AboutMe'
+import AboutMeMobile from './components/Mobile/AboutMeMobile'
+import AboutMePC from './components/PC/AboutMePC'
 /*git add .
-git commit -m "Converted all png to webp for faster performance"
+git commit -m "Added about for PC"
 git push*/
 
-function App() {
+
+// Below are the functions that is used throughtout the app, defined here for reusability
+export function handleAboutClick(){
+  const about = document.getElementById('about')
+
+  about.scrollIntoView({behavior: 'smooth'})
+}
+
+export function isRed(){
+  return (Math.random() < 0.2 ? `red` : `#50AFFF`)
+}      
+
+export default function App() {
 
   useEffect(() => {
     const canvas = document.getElementById('tapEffectCanvas')
@@ -158,10 +171,8 @@ function App() {
         </div>
       </section>
 
-      <AboutMe />
+      {isMobile ? <AboutMeMobile /> : <AboutMePC /> }
 
     </div>
   )
 }
-
-export default App
