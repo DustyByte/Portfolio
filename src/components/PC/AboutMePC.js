@@ -13,7 +13,7 @@ export default function AboutMePC(){
                     <p>After finishing my HSC examination, i got into programming in general.Playing with different techs, I ended up here as an web dev.</p>
                 </div>
                 <div className='imageWrapper'>
-                    <img src="/flat.webp" alt="" fetchpriority="low" />
+                    <img src="/flat.webp" alt="" fetchpriority="low" loading='lazy' />
                 </div>
             </div>
         </div>

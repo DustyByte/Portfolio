@@ -121,7 +121,7 @@ export default function HomePC(){
                         <h1>Hi, I'm Mashnun</h1>
                         <span>Front-end developer</span>
                     </div>
-                    <img id="hero" src="/nedStark.webp" alt="" />
+                    <img id="hero" src="/nedStark.webp" alt="" fetchpriority="high"/>
                 </div>
             </div>
         </div>

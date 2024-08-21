@@ -7,7 +7,7 @@ import AboutMeMobile from './components/Mobile/AboutMeMobile'
 import AboutMePC from './components/PC/AboutMePC'
 import Projects from './components/Projects'
 /*git add .
-git commit -m "Added about for PC"
+git commit -m "Added projects for both PC & Mobile"
 git push*/
 
 
