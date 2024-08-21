@@ -58,3 +58,7 @@ section{
 .home-about-wave .shape-fill {
   fill: #091C2A;
 }
+
+#testCanvas{
+  position: relative;
+}

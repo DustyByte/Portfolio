@@ -5,6 +5,7 @@ import HomePC from './components/PC/HomePC'
 import './App.css'
 import AboutMeMobile from './components/Mobile/AboutMeMobile'
 import AboutMePC from './components/PC/AboutMePC'
+import Projects from './components/Projects'
 /*git add .
 git commit -m "Added about for PC"
 git push*/
@@ -15,6 +16,12 @@ export function handleAboutClick(){
   const about = document.getElementById('about')
 
   about.scrollIntoView({behavior: 'smooth'})
+}
+
+export function handleProjectClick(){
+  const projects = document.getElementById('projects')
+
+  projects.scrollIntoView({behavior: 'smooth'})
 }
 
 export function isRed(){
@@ -173,6 +180,8 @@ export default function App() {
 
       {isMobile ? <AboutMeMobile /> : <AboutMePC /> }
 
+      <Projects />
+
     </div>
   )
-}
+} 

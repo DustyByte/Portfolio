@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { handleAboutClick, isRed } from "../../App"
+import { handleAboutClick, handleProjectClick, isRed } from "../../App"
 import './homePC.css'
 
 export default function HomePC(){
@@ -109,7 +109,7 @@ export default function HomePC(){
                 </div>
                 <ul>
                     <li onClick={() => handleAboutClick()}>About me</li>
-                    <li>Projects</li>
+                    <li onClick={() => handleProjectClick()}>Projects</li>
                     <li>Academics</li>
                     <li>Skills</li>
                     <li>Contact me</li>
