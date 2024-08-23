@@ -43,7 +43,6 @@ export default function HomeMobile(){
         const radDistance = Math.PI / 2
 
         const hero = document.getElementById('hero').getBoundingClientRect()
-        console.log(hero);
 
         function animate(){          
           ctx.clearRect(0, 0, canvas.width, canvas.height) 

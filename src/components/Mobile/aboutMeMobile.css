@@ -23,6 +23,17 @@
     align-self: flex-start;
     margin-left: 30px;
 }
+    
+.AboutMobileContainer > div::before{
+    animation: morph 10s ease infinite;
+    content: '';
+    background-color: #0b1e2c;
+    width: 58vw;
+    aspect-ratio: 1;
+    position: absolute;
+    top: -10px;
+    left: -20px;
+}
 
 .AboutMobileContainer > div > img{
     width: 180px;
@@ -37,16 +48,6 @@
     position: relative;
 }
 
-.AboutMobileContainer > div::before{
-    animation: spin 10s ease infinite;
-    content: '';
-    background-color: #0b1e2c;
-    width: 58vw;
-    aspect-ratio: 1;
-    position: absolute;
-    top: -30px;
-    left: -20px;
-}
 
 .AboutMobileContainer > div > .texts > h2{
     color: #5BA9FF;
@@ -60,25 +61,20 @@
     color: rgba(255, 255, 255, 0.75);
 }
 
-@keyframes spin {
+@keyframes morph {
     from{
-        transform: rotate(0deg);
         border-radius: 59% 13% 25% 60% / 74% 33% 47% 35%;
     }    
     25%{
-        transform: rotate(90deg);
         border-radius: 29% 60% 62% 26% / 74% 18% 69% 25%;
     }
     50%{
-        transform: rotate(180deg);
         border-radius: 39% 61%75% 25% / 63% 49% 42% 25%;
     }
     75%{
-        transform: rotate(270deg);
         border-radius: 40% 60% 28% 72% / 37% 43% 57% 63%;
     }
     to{
-        transform: rotate(360deg);
         border-radius: 59% 13% 25% 60% / 74% 33% 47% 35%;
     }
 }
