@@ -8,7 +8,7 @@ import AboutMePC from './components/PC/AboutMePC'
 import Projects from './components/Projects'
 import Skills from './Skills'
 /*git add .
-git commit -m "Added skills for both platforms"
+git commit -m "Fixed bugs"
 git push*/
 
 
