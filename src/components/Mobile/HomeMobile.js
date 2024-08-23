@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { handleAboutClick, handleProjectClick, handleSkillsClick, isRed } from "../../App"
+import { handleAboutClick, handleContactClick, handleProjectClick, handleSkillsClick, isRed } from "../../App"
 import "./homeMobile.css"
 
         
@@ -43,6 +43,7 @@ export default function HomeMobile(){
         const radDistance = Math.PI / 2
 
         const hero = document.getElementById('hero').getBoundingClientRect()
+        console.log(hero);
 
         function animate(){          
           ctx.clearRect(0, 0, canvas.width, canvas.height) 
@@ -96,7 +97,7 @@ export default function HomeMobile(){
 
         // Pushing 5 initial stars
         for(let i = 0; i < 5; i++){
-          stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 80 + Math.random() * 60, speed: (Math.random() * 2) + 2, col: isRed()})
+          stars.push({x: (Math.random() - 1) * canvas.width, y: (Math.random() + 1) * canvas.height, len: 40 + Math.random() * 60, speed: (Math.random() * 2) + 2, col: isRed()})
         }
 
         animate()
@@ -120,9 +121,8 @@ export default function HomeMobile(){
                   <>
                     <li onClick={() => handleAboutClick()}>About me</li>
                     <li onClick={() => handleProjectClick()}>Projects</li>
-                    <li>Academics</li>
                     <li onClick={() => handleSkillsClick()}>Skills</li>
-                    <li>Contact me</li>
+                    <li onClick={() => handleContactClick()}>Contact me</li>
                   </>
                 }
               </ul>

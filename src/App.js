@@ -2,14 +2,12 @@ import { useEffect } from 'react'
 import { isMobile } from 'react-device-detect'
 import HomeMobile from './components/Mobile/HomeMobile'
 import HomePC from './components/PC/HomePC'
-import './App.css'
 import AboutMeMobile from './components/Mobile/AboutMeMobile'
 import AboutMePC from './components/PC/AboutMePC'
 import Projects from './components/Projects'
 import Skills from './Skills'
-/*git add .
-git commit -m "Fixed bugs"
-git push*/
+import ContactMe from './components/ContactMe'
+import './App.css'
 
 
 // Below are the functions that is used throughtout the app, defined here for reusability
@@ -36,6 +34,12 @@ export function handleSkillsClick(){
   const skills = document.getElementById('skills')
 
   skills.scrollIntoView({behavior: 'smooth'})
+}
+
+export function handleContactClick(){
+  const contact = document.getElementById('contact')
+
+  contact.scrollIntoView({behavior: `smooth`})
 }
 
 export function isRed(){
@@ -82,22 +86,6 @@ export default function App() {
       }
     }
     
-    // function handleMouseMove(e){
-    //   const ballAmount = 3
-      
-    //   for(let i = 0; i < ballAmount; i++){
-    //     objects.push({
-    //       x: e.x, 
-    //       y: e.y, 
-    //       rad: Math.random() * 5 + 5, 
-    //       dissipateSpeed: 0.2,
-    //       speed: {
-    //         x: (Math.random() * 2 - 1) * 1.5,
-    //         y: (Math.random() * 2 - 1) * 1.5
-    //       }
-    //     })
-    //   }
-    // }
     
     function handleTap(e){
       ctx.fillStyle = '#3373FF'
@@ -220,6 +208,8 @@ export default function App() {
       </section>
 
       <Skills />
+
+      <ContactMe />
       
     </div>
   )

@@ -1,0 +1,17 @@
+#contact{
+    background-color: #091C2A;
+    padding: 10px 30px 10px 30px;
+    user-select: text;
+    text-align: start;
+}
+#contact > h4{
+    color: #5BA9FF;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#contact > h4 > p{
+    color: white;
+}

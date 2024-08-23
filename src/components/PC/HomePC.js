@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { handleAboutClick, handleGetResume, handleProjectClick, handleSkillsClick, isRed } from "../../App"
+import { handleAboutClick, handleContactClick, handleGetResume, handleProjectClick, handleSkillsClick, isRed } from "../../App"
 import './homePC.css'
 
 export default function HomePC(){
@@ -110,9 +110,8 @@ export default function HomePC(){
                 <ul>
                     <li onClick={() => handleAboutClick()}>About me</li>
                     <li onClick={() => handleProjectClick()}>Projects</li>
-                    <li>Academics</li>
                     <li onClick={() => handleSkillsClick()}>Skills</li>
-                    <li>Contact me</li>
+                    <li onClick={() => handleContactClick()}>Contact me</li>
                 </ul>
             </div>
             <div className="homePCBody">
@@ -121,7 +120,7 @@ export default function HomePC(){
                         <h1>Hi, I'm Mashnun</h1>
                         <span>Front-end developer</span>
                         <div>
-                          <button className="transparent">Contact me</button>
+                          <button className="transparent" onClick={() => handleContactClick()}>Contact me</button>
                           <button className="blue" onClick={() => handleGetResume()}>Get resume</button>
                         </div>
                     </div>
