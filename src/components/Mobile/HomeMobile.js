@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { handleAboutClick, handleProjectClick, isRed } from "../../App"
+import { handleAboutClick, handleProjectClick, handleSkillsClick, isRed } from "../../App"
 import "./homeMobile.css"
 
         
@@ -122,7 +122,7 @@ export default function HomeMobile(){
                     <li onClick={() => handleAboutClick()}>About me</li>
                     <li onClick={() => handleProjectClick()}>Projects</li>
                     <li>Academics</li>
-                    <li>Skills</li>
+                    <li onClick={() => handleSkillsClick()}>Skills</li>
                     <li>Contact me</li>
                   </>
                 }

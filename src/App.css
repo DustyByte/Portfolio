@@ -34,7 +34,6 @@
   background-color: aquamarine;
 }
 
-
 section{
   position: relative;
 }
@@ -56,5 +55,46 @@ section{
 }
 
 .home-about-wave .shape-fill {
+  fill: #091C2A;
+}
+
+.custom-shape-divider-top-1724321071 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1724321071 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-top-1724321071 .shape-fill {
+  fill: #112E43;
+}
+
+.custom-shape-divider-top-1724395756 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1724395756 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-top-1724395756 .shape-fill {
   fill: #091C2A;
 }

@@ -97,12 +97,16 @@
 
 .homePCBody > div > .introduction{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .homePCBody > div > .introduction::after{
     position: absolute;
     content: '';
-    top: calc( 50% + 80px);
+    top: calc( 50% + 30px);
     left: 50%;
     translate: -50% -50%;
     width: 100%;
@@ -111,17 +115,44 @@
     z-index: -1;
     border-radius: 100%;
     padding: 40px;
-    filter: blur(20px);
+    filter: blur(60px);
     transform: rotateX(60deg);
 }
 
 .homePCBody > div > .introduction > h1{
     color: white;
     font-size: 40px;
+    margin: 0px 0px 10px 0px;
 }
 
 .homePCBody > div > .introduction > span{
     color: #02ABF6;
     font-size: 26px;
+    margin: 0px 0px 10px 0px;
     font-weight: 700;
+}
+
+.homePCBody > div > .introduction > div{
+    display: flex;
+    gap: 16px;
+}
+
+.homePCBody > div > .introduction > div > button{
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #02ABF6;
+    color: white;
+}
+
+.homePCBody > div > .introduction > div > button:hover{
+    background-color: #02ABF6;
+}
+
+
+.blue{
+    background-color: #028dc9;
+}
+
+.transparent{
+    background-color: transparent;
 }

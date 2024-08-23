@@ -1,0 +1,72 @@
+.skillsContainer{
+    height: 100svh;
+    background-color: #112E43;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20svh;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.skillsContainer > div{
+    width: 16vw;
+    aspect-ratio: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spin 10s linear 0s infinite;
+}
+
+.skillsContainer > div::before{
+    content: '';
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #5baaff34;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    animation: spin 10s linear 0s infinite reverse;
+    filter: blur(80px);
+}
+
+.skillsContainer > h1 > span{
+    color: #5BA9FF;
+}
+
+.skillsContainer > h1{
+    margin-top: 15svh;
+    color: white;
+}
+
+.skillsContainer > div > .centerSkill{
+    width: 10vw;
+}
+.skillsContainer > div > img{
+    width: 5vw;
+    animation: spin 10s linear 0s infinite reverse;
+}
+
+@keyframes spin {
+    from{
+        rotate: 0deg;
+    }
+    20%{
+        rotate: 72deg;
+    }
+    40%{
+        rotate: 144deg;
+    }
+    60%{
+        rotate: 216deg;
+    }
+    80%{
+        rotate: 288deg;
+    }
+    to{
+        rotate: 360deg;
+    }
+}
